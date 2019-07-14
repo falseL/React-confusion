@@ -1,17 +1,11 @@
-import React, {Component} from 'react';
-import {Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
+import React, { Component } from 'react';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-class Dishdetail extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            selectedDish: null
-        };
-    }
+class Dishdetail extends Component {
 
-    renderDish(dish){
-        if(dish != null){
-            return(
+    renderDish(dish) {
+        if (dish != null) {
+            return (
                 <div className="row">
                     <div className="col-12 col-md-5 m-1">
                         <Card key={dish.id}>
@@ -23,65 +17,51 @@ class Dishdetail extends Component{
                         </Card>
                     </div>
                     <div className="col-12 col-md-5 m-1">
-                        <Card> 
-                            <CardBody>
-                                <CardText>{this.renderComments(this.props.dish.comments)}</CardText>
-                            </CardBody>
-                        </Card>
+                        <p>{this.renderComments(this.props.dish.comments)}</p>
                     </div>
                 </div>
             )
         }
-        else{
-            return(
+        else {
+            return (
                 <div></div>
             )
         }
     }
 
-    renderComments(commentsArray){
-        if (commentsArray != null){
-            var month = new Array(12);
-            month[0] = "Jan";
-            month[1] = "Feb";
-            month[2] = "Mar";
-            month[3] = "Apr";
-            month[4] = "May";
-            month[5] = "Jun";
-            month[6] = "Jul";
-            month[7] = "Aug";
-            month[8] = "Sep";
-            month[9] = "Oct";
-            month[10] = "Nov";
-            month[11] = "Dec";
-            //const selectedDishComments = this.props.dish.comments.map((comment) => {
+    renderComments(commentsArray) {
+        if (commentsArray != null) {
             const selectedDishComments = commentsArray.map((comment) => {
                 let date = new Date(comment.date);
-                let dateString =  month[date.getMonth()]+ ' ' + (date.getDate() + 1) + ', ' + date.getFullYear();
-                    return(
-                            <li>
-                                <p>{comment.comment}</p>
-                                <p>-- {comment.author}, {dateString}</p>
-                            </li>
-                    )
+                let dateString = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(date)
+                return (
+                    <li>
+                        <p>{comment.comment}</p>
+                        <p>-- {comment.author}, {dateString}</p>
+                    </li>
+                )
             })
-            return(
+            return (
                 <div>
                     <h4>Comments</h4>
-                    <ul class = "list-unstyled">
+                    <ul class="list-unstyled">
                         {selectedDishComments}
                     </ul>
                 </div>
             );
         }
-        else{
-            return(
+        else {
+            return (
                 <div></div>
             );
         }
     }
-    render(){
-        return this.renderDish(this.props.dish);
+    render() {
+        return (
+            <div className="container">
+                {this.renderDish(this.props.dish)}
+            </div>
+        )
     }
 }
 
