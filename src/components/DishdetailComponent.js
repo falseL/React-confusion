@@ -36,7 +36,7 @@ function RenderComments({ comments }) {
     );
 }
 
-const Dishdetail = (props) => {
+const DishDetail = (props) => {
     if (props.dish != null) {
         return (
             <div className="container">
@@ -55,4 +55,4 @@ const Dishdetail = (props) => {
     }
 }
 
-export default Dishdetail;
+export default DishDetail;
