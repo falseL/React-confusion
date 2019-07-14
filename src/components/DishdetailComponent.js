@@ -8,7 +8,7 @@ class Dishdetail extends Component {
             return (
                 <div className="row">
                     <div className="col-12 col-md-5 m-1">
-                        <Card key={dish.id}>
+                        <Card>
                             <CardImg width="100%" src={dish.image} alt={dish.name} />
                             <CardBody>
                                 <CardTitle>{dish.name}</CardTitle>
@@ -17,7 +17,7 @@ class Dishdetail extends Component {
                         </Card>
                     </div>
                     <div className="col-12 col-md-5 m-1">
-                        <p>{this.renderComments(this.props.dish.comments)}</p>
+                        {this.renderComments(this.props.dish.comments)}
                     </div>
                 </div>
             )
@@ -32,10 +32,9 @@ class Dishdetail extends Component {
     renderComments(commentsArray) {
         if (commentsArray != null) {
             const selectedDishComments = commentsArray.map((comment) => {
-                let date = new Date(comment.date);
-                let dateString = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(date)
+                let dateString = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))
                 return (
-                    <li>
+                    <li key={comment.id}>
                         <p>{comment.comment}</p>
                         <p>-- {comment.author}, {dateString}</p>
                     </li>
@@ -44,7 +43,7 @@ class Dishdetail extends Component {
             return (
                 <div>
                     <h4>Comments</h4>
-                    <ul class="list-unstyled">
+                    <ul className="list-unstyled">
                         {selectedDishComments}
                     </ul>
                 </div>
@@ -56,6 +55,7 @@ class Dishdetail extends Component {
             );
         }
     }
+
     render() {
         return (
             <div className="container">
