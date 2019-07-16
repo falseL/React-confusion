@@ -41,7 +41,6 @@ const DishDetail = (props) => {
         return (
             <div className="container">
                 <div className="row">
-
                     <RenderDish dish={props.dish} />
                     <RenderComments comments={props.dish.comments} />
                 </div>
