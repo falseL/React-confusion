@@ -123,9 +123,8 @@ class CommentForm extends Component {
                             </Row>
                             <Label htmlFor="comment">Comment</Label>
                             <Row className="form-group">
-
                                 <Col md={12}>
-                                    <Control.textarea model=".message" id="message" name="message"
+                                    <Control.textarea model=".comment" id="comment" name="comment"
                                         rows="12"
                                         className="form-control" />
                                 </Col>
