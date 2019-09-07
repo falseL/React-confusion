@@ -1,4 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## A Javascript React application to display information for a restaurant.
+* Single Page Application using React Router
+* Bootstrap, responsive webpages
+* Functional Components
+* Redux controlled form, form validation, actions
 
 ## Available Scripts
 
