@@ -5,6 +5,8 @@
 * Functional Components
 * Redux controlled form, form validation, actions
 
+[Zeyu Li's Portfolio](https://falsel.github.io/)
+
 ## Available Scripts
 
 In the project directory, you can run:
