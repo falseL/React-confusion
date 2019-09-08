@@ -1,11 +1,8 @@
-
 ## A Javascript React application to display information for a restaurant.
 * Single Page Application using React Router
 * Bootstrap, responsive webpages
 * Functional Components
 * Redux controlled form, form validation, actions
-
-[Zeyu Li's Portfolio](https://falsel.github.io/)
 
 ## Available Scripts
 
