@@ -191,13 +191,13 @@ export const addFeedback = (feedback) => ({
 
 export const postFeedback = (firstname, lastname, telnum, email, agree, contactType, message) => (dispatch) => {
     const newFeedback = {
-        firstname: firstname, 
-        lastname: lastname, 
-        telnum: telnum, 
-        email: email, 
-        agree: agree, 
-        contactType: contactType, 
-        message: message, 
+        firstname: firstname,
+        lastname: lastname,
+        telnum: telnum,
+        email: email,
+        agree: agree,
+        contactType: contactType,
+        message: message,
     }
     newFeedback.date = new Date().toISOString();
 
@@ -224,9 +224,14 @@ export const postFeedback = (firstname, lastname, telnum, email, agree, contactT
                 throw errmess;
             })
         .then(response => response.json())
-        .then(response => dispatch(addFeedback(response)))
+        .then(response => { console.log('Feedback', response); alert('Thank you for your feedback!\n' + JSON.stringify(response)); })
         .catch(error => {
             console.log('Post feedback', error.message)
             alert('Your feedback could not be posted\nError' + error.message);
         });
 };
+
+export const feedbackFailed = (errmess) => ({
+    type: ActionTypes.FEEDBACK_FAILED,
+    payload: errmess
+});
