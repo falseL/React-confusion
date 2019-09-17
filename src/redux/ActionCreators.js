@@ -184,11 +184,6 @@ export const addLeaders = (leaders) => ({
     payload: leaders
 });
 
-export const addFeedback = (feedback) => ({
-    type: ActionTypes.ADD_FEEDBACK,
-    payload: feedback
-});
-
 export const postFeedback = (firstname, lastname, telnum, email, agree, contactType, message) => (dispatch) => {
     const newFeedback = {
         firstname: firstname,
@@ -230,8 +225,3 @@ export const postFeedback = (firstname, lastname, telnum, email, agree, contactT
             alert('Your feedback could not be posted\nError' + error.message);
         });
 };
-
-export const feedbackFailed = (errmess) => ({
-    type: ActionTypes.FEEDBACK_FAILED,
-    payload: errmess
-});
